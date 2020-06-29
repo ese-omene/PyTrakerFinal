@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+#SECRET_KEY = os.environ['SECRET_KEY']
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,8 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'k*%okts+%4q&7ml+^tq&hq=iz-2ezp7qv1y!&hxyv@p!b32@v9'
 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'k*%okts+%4q&7ml+^tq&hq=iz-2ezp7qv1y!&hxyv@p!b32@v9')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = []
 
